@@ -23,7 +23,7 @@
 
             <div class="form-group">
                <label for="title">Año</label>
-               <input type="text" name="año" id="año" class="form-control">
+               <input type="text" name="año" id="year" class="form-control">
             </div>
 
             <div class="form-group">
