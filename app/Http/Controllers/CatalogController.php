@@ -140,7 +140,6 @@ class CatalogController extends Controller{
         
     }
 
-    /*****************Comentaris******************/
 
     public function postReview(Request $request, $id){
 
@@ -156,11 +155,37 @@ class CatalogController extends Controller{
 
         $Reviews = Review::where('movie_id', $pelicula->id)->get();
 
-        Notify::success('Gracias por darnos tu opinión!');
+        Notify::success('La teva opinió importa');
 
         return view('catalog.show', array('Pelicula'=>$pelicula, 'Reviews'=>$Reviews));
 
     }
+
+    public function search(Request $request)
+    {
+        $search = $request['search'];
+
+        if ($search == '') {
+            return redirect('/catalog');
+        }
+
+        $arrayPeliculas = Movie::where(
+            'title',
+            'like',
+            '%' . $search . '%'
+        )->orWhere(
+            'director',
+            'like',
+            '%' . $search . '%'
+        )->get();
+
+        if (count($arrayPeliculas) == 0) {
+            return redirect('/catalog')->with('warning', 'Busca millor');
+        }
+
+        return view('catalog.index', compact('arrayPeliculas'));
+    }
+
 
 
 

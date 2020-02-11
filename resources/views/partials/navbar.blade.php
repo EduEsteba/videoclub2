@@ -22,6 +22,12 @@
                     </li>
                 </ul>
 
+                <form class="form-inline my-2 my-lg-0" action="{{ route('catalog.search') }}" method="POST">
+                    @csrf
+                    <input name="search" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                </form>
+
                 <ul class="navbar-nav navbar-right">
                     <li class="nav-item">
                         <form action="{{ url('/logout') }}" method="POST" style="display:inline">

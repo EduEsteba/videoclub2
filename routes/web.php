@@ -53,6 +53,9 @@ Route::put('catalog/favorito/{id}', 'CatalogController@putFavorits')->middleware
 Route::put('catalog/nofavorito/{id}', 'CatalogController@putnoFavorits')->middleware('auth');
 
 Route::post('/review/create/{id}', 'CatalogController@postReview')->middleware('auth');
+
+Route::post('/catalog', 'CatalogController@search')->name('catalog.search');
+
 Auth::routes();
 
 
