@@ -53,10 +53,19 @@ Route::delete('catalog/delete/{id}', 'CatalogController@deleteMovie')->middlewar
 Route::put('catalog/nofavorito/{id}', 'CatalogController@putnoFavorits')->middleware('auth');*/
 
 Route::post('/review/create/{id}', 'CatalogController@postReview')->middleware('auth');
-
 Route::post('/catalog', 'CatalogController@search')->name('catalog.search');
+Route::resource('category','CategoryController');
 
-Auth::routes();
+/*Category*/
+
+/*Route::get('/category','CategoryController@index')->middleware('auth');;
+Route::get('/category/create','CategoryController@create')->middleware('auth');;
+Route::post('/category','CategoryController@store')->middleware('auth');;
+Route::get('/category/{id}','CategoryController@show')->middleware('auth');;
+Route::get('/category/{id}/edit','CategoryController@edit')->middleware('auth');;
+Route::put('/category/{id}','CategoryController@update')->middleware('auth');;
+Route::delete('/category/{id}','CategoryController@destroy')->middleware('auth');;
+Auth::routes();*/
 
 
 
