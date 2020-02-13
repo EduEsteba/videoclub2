@@ -22,10 +22,10 @@
             <label for="director">Director</label>
             <input type="text" class="form-control" id="director" name="director" placeholder="Director" value="{{$pelicula->director}}">
         </div>
-        <div class="form-group">
+        <!--<div class="form-group">
             <label for="category_id">Categoria</label>
             <input type="text" class="form-control" id="category_id" name="category_id" placeholder="Director" value="{{$pelicula->category_id}}">
-        </div>
+        </div>-->
         <div class="form-group">
             <label for="poster">Poster</label>
             <input type="text" class="form-control" id="poster" name="poster" placeholder="Poster" value="{{$pelicula->poster}}">
@@ -34,6 +34,14 @@
             <label for="synopsis">Resum</label>
             <textarea class="form-control" rows="3" id="synopsis" name="synopsis" placeholder="Synopsis">{{$pelicula->synopsis}}</textarea>
         </div>
+
+        <div class="form-group">
+               <label for="title">Trailer</label>
+               <textarea name="trailer" type="text" id="trailer" class="form-control" ></textarea>
+            </div>
+
+
+        
         
         <button type="submit" class="btn btn-success">
           <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Guardar canvis

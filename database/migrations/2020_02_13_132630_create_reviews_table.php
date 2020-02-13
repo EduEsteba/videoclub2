@@ -20,12 +20,12 @@ class CreateReviewsTable extends Migration
             $table->integer('stars');
             $table->timestamp('timestamps');
 
-            /*$table->bigInteger('user_id')->references('id')->on('users');
-            $table->bigInteger('movie_id')->references('id')->on('movies');*/
-            Schema::table('reviews', function($table) {
+            $table->bigInteger('user_id')->references('id')->on('users');
+            $table->bigInteger('movie_id')->references('id')->on('movies');
+            /*Schema::table('reviews', function($table) {
                 $table->foreign('user_id')->references('id')->on('users');
                 $table->foreign('movie_id')->references('id')->on('movies');
-            });
+            });*/
 
             
         });
@@ -41,3 +41,4 @@ class CreateReviewsTable extends Migration
         Schema::dropIfExists('reviews');
     }
 }
+

@@ -41,6 +41,13 @@
                <textarea name="synopsis" id="synopsis" class="form-control" rows="3"></textarea>
             </div>
 
+            <div class="form-group">
+               <label for="title">Trailer</label>
+               <textarea name="trailer" type="text" id="trailer" class="form-control" rows="3"></textarea>
+            </div>
+
+         
+
             <div class="form-group text-center">
                <button type="submit" class="btn btn-primary" style="padding:8px 100px;margin-top:25px;">
                    Añadir película

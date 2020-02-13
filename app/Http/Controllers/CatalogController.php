@@ -21,13 +21,11 @@ class CatalogController extends Controller{
         
         return view('catalog.index',  array('arrayPeliculas'=>$movies));
     }
-    public function getShow($id)
-    {
+    public function getShow($id){
         $movie = Movie::findOrFail($id);
         $chapters = $movie->chapters;
         $dades['id']=$id;
         $dades['pelicula']=$movie;
-
         $Reviews = Review::where('movie_id', $id)->get();
         return view('catalog.show',$dades, array('Reviews'=>$Reviews));
     }
@@ -44,7 +42,8 @@ class CatalogController extends Controller{
         $movie->director = $request->director;
         $movie->poster = $request->poster;
         $movie->synopsis = $request->synopsis;
-        $movie->save();
+        $movie->segonafoto = $request->segonafoto;
+        $movie->trailer = request ('trailer');
         Notify::success('La película se ha guardado/modificado correctamente'); 
         return redirect()->back();
     }
@@ -65,6 +64,7 @@ class CatalogController extends Controller{
         $movie->poster = $request->poster;
         $movie->synopsis = $request->synopsis;
         $movie->id = $request->id;
+        $movie->trailer = request('trailer');
         $movie->save();
         Notify::success('La película se ha guardado/modificado correctamente'); 
         return redirect('catalog/show/'.$id);
@@ -85,22 +85,10 @@ class CatalogController extends Controller{
     }
 
     /**************** AFEGIR A FAVORITS*******************/
-    public function putFavorits($id)
-    {
-        //Obtenim la pel·lícula que té el id=$id
-        $movie = Movie::findOrFail($id);
-        
-        $movie->favorito = false;
-        $movie->save();
-        
-        Notify::success('Pel·licula afegida a favorits!');
-        return redirect()->back();
-        
-        
-    }
+ 
 
 
-    public function putnoFavorits($id)
+    /*public function putnoFavorits($id)
     {
         //Obtenim la pel·lícula que té el id=$id
         $movie = Movie::findOrFail($id);
@@ -111,7 +99,7 @@ class CatalogController extends Controller{
         Notify::success('Pel·licula treta de favorits!');
         return redirect()->back();
         
-    }
+    }*/
     /***********************************/
 
     
@@ -157,7 +145,7 @@ class CatalogController extends Controller{
 
         Notify::success('La teva opinió importa');
 
-        return view('catalog.show', array('Pelicula'=>$pelicula, 'Reviews'=>$Reviews));
+        return view('catalog.show', array('pelicula'=>$pelicula, 'Reviews'=>$Reviews));
 
     }
 

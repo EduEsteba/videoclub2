@@ -49,8 +49,8 @@ Route::put('catalog/return/{id}', 'CatalogController@putReturn')->middleware('au
 Route::delete('catalog/delete/{id}', 'CatalogController@deleteMovie')->middleware('auth');
 
 
-Route::put('catalog/favorito/{id}', 'CatalogController@putFavorits')->middleware('auth');
-Route::put('catalog/nofavorito/{id}', 'CatalogController@putnoFavorits')->middleware('auth');
+/*Route::put('catalog/favorito/{id}', 'CatalogController@putFavorits')->middleware('auth');
+Route::put('catalog/nofavorito/{id}', 'CatalogController@putnoFavorits')->middleware('auth');*/
 
 Route::post('/review/create/{id}', 'CatalogController@postReview')->middleware('auth');
 
