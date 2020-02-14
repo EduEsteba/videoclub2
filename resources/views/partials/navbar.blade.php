@@ -20,6 +20,7 @@
                             <span>&#10010</span> Nueva película
                         </a>
                     </li>
+
                 </ul>
 
                 <form class="form-inline my-2 my-lg-0" action="{{ route('catalog.search') }}" method="POST">

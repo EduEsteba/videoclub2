@@ -56,29 +56,40 @@ class DatabaseSeeder extends Seeder
 	private $arrayCategorias = array(
 		array(
 			'title' => 'Infantil',
-			'description' => 'Categoria reservada als mes petits de la casa',
+			'description' => 'Pa los chiquillos',
 			'adult' => false
 		),
 		array(
 			'title' => 'Drama',
-			'description' => 'Categoria reservada per tots els publics',
+			'description' => 'F en el chat',
 			'adult' => false
 		),
 		array(
 			'title' => 'Comedia',
-			'description' => 'Categoria reservada als joves',
+			'description' => 'Uis que risa',
 			'adult' => false
 		),
 		array(
 			'title' => 'Terror',
-			'description' => 'Categoria reservada als adults',
+			'description' => 'Me cagao encima',
 			'adult' => true
 		),
 		array(
 			'title' => 'Porno',
-			'description' => 'Solament majors de 18 anys',
+			'description' => 'Para los salidos',
 			'adult' => true
+		),
+		array(
+			'title' => 'Anime',
+			'description' => 'Pa los que no se duchan',
+			'adult' => false
+		),
+		array(
+			'title' => 'Documentales',
+			'description' => 'Si quieres dormir, ponte esto',
+			'adult' => false
 		)
+
 	);
 
 	public function seedCategory() {

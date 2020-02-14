@@ -14,7 +14,13 @@
         <div>
         </div>
        
-			<h2 style="min-height:45px;margin:5px 0 10px 0"><b>{{$pelicula->title}}</b></h2>
+			
+            <h2><b>{{$pelicula->title}}</b></h2>
+            @if(is_null($pelicula->category_id))
+            <p><b>Categoria:</b> De moment no te categoria</p>
+            @else
+            <p><b>Categoria:</b> {{$pelicula->category->title}}</p>
+            @endif
             <p><b>Año:</b> {{$pelicula->year}}</p>
             <p><b>Director:</b> {{$pelicula->director}}</p>
             <p><b>Resumen:</b> {{$pelicula->synopsis}}</p>
@@ -55,17 +61,17 @@
             <!-----------------------------------COMENTARIS----------------------->
 
             <div style="margin-top:25px;">
-        <h3>Comentaris</h3>
-        @foreach( $Reviews as $Review )
-        <div class="card border-light">
+            <h3>Comentaris</h3>
+            @foreach( $Reviews as $Review )
+            <div class="card border-light">
             <div class="card-body" style="border-left: 5px solid lightgrey; padding-left: 1%">
             <h5 class="card-title">{{$Review->title}}</h5>
               <h6 class="card-subtitle mb-2 text-muted">{{$Review->stars}} Estrelles</h6>
               <p class="card-text">{{$Review->review}}</p>
               <footer class="blockquote-footer"> {{date('d/m/Y', strtotime($Review->created_at))}} - <cite title="Source Title">{{$Review->user->name}}</cite></footer>
             </div>
-          </div>
-          @endforeach
+            </div>
+            @endforeach
             <form method="POST" action="{{action('CatalogController@postReview', $pelicula->id)}}"  style="margin-top:25px;line-height: 5%">
                 {{ method_field('POST') }}
                 {{ csrf_field() }}

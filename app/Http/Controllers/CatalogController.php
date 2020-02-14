@@ -7,8 +7,8 @@ use App\Movie;
 use Notify;
 use App\Review;
 use Illuminate\Support\Facades\Auth;
-
-
+use App\Category;
+use DB;
 
 
 class CatalogController extends Controller{
@@ -146,17 +146,7 @@ class CatalogController extends Controller{
     /*CERCADOR*/
     public function search(Request $request){
         $search = $request['search'];
-
-        if ($search == '') {
-            return redirect('/catalog');
-        }
-
         $arrayPeliculas = Movie::where('title','like','%' . $search . '%')->orWhere('director','like','%' . $search . '%')->get();
-
-        if (count($arrayPeliculas) == 0) {
-            return redirect('/catalog')->with('warning', 'Busca millor');
-        }
-
         return view('catalog.index', compact('arrayPeliculas'));
     }
 

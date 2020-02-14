@@ -22,7 +22,7 @@
                <option value="{{$cat->id}}">{{$cat->title}}</option>
             @endforeach
             </select>
-            </div>
+        </div>
 
         <div class="form-group">
             <label for="year">Any</label>
@@ -48,7 +48,8 @@
         <div class="form-group">
                <label for="title">Trailer</label>
                <textarea name="trailer" type="text" id="trailer" class="form-control" ></textarea>
-            </div>
+        </div>
+
 
         <button type="submit" class="btn btn-success">
           <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Guardar canvis

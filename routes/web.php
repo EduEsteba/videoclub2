@@ -44,6 +44,8 @@ Route::delete('catalog/delete/{id}', 'CatalogController@deleteMovie')->middlewar
 Route::post('/review/create/{id}', 'CatalogController@postReview')->middleware('auth');
 Route::post('/catalog', 'CatalogController@search')->name('catalog.search');
 
+Route::resource('category','CategoryController');
+
 
 /*Rutes de les categories*/
 /*Route::get('/category','CategoryController@index')->middleware('auth');;
