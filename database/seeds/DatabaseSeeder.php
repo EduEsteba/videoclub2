@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run(){
 		self::seedCatalog();
 		self::seedUsers();
+		self::seedCategory();
 		$this->command->info('Tabla catálogo inicializada con datos!');
 		
 	}
@@ -49,6 +50,45 @@ class DatabaseSeeder extends Seeder
 			$p->synopsis = $pelicula['synopsis'];
 			$p->trailer = $pelicula['trailer'];;
             $p->save();
+        }
+	}
+
+	private $arrayCategorias = array(
+		array(
+			'title' => 'Infantil',
+			'description' => 'Categoria reservada als mes petits de la casa',
+			'adult' => false
+		),
+		array(
+			'title' => 'Drama',
+			'description' => 'Categoria reservada per tots els publics',
+			'adult' => false
+		),
+		array(
+			'title' => 'Comedia',
+			'description' => 'Categoria reservada als joves',
+			'adult' => false
+		),
+		array(
+			'title' => 'Terror',
+			'description' => 'Categoria reservada als adults',
+			'adult' => true
+		),
+		array(
+			'title' => 'Porno',
+			'description' => 'Solament majors de 18 anys',
+			'adult' => true
+		)
+	);
+
+	public function seedCategory() {
+		DB::table('categories')->delete();
+		foreach( $this->arrayCategorias as $categoria ) {
+            $c = new Category;
+            $c->title = $categoria['title'];
+            $c->description = $categoria['description'];
+            $c->adult = $categoria['adult'];
+			$c->save();
         }
 	}
 

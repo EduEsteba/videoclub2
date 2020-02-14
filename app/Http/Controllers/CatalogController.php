@@ -44,7 +44,7 @@ class CatalogController extends Controller{
         $movie->synopsis = $request->synopsis;
         $movie->segonafoto = $request->segonafoto;
         $movie->trailer = $request ('trailer');
-        Notify::success('La película se ha guardado/modificado correctamente'); 
+        Notify::success('La pelicula sha creat correctament'); 
         return redirect()->back();
     }
     
@@ -57,7 +57,6 @@ class CatalogController extends Controller{
     
     public function putEdit(Request $request, $id){
         $movie = Movie::findOrFail($id);
-        
         $movie->title = $request->title;
         $movie->year = $request->year;
         $movie->director = $request->director;
@@ -66,13 +65,11 @@ class CatalogController extends Controller{
         $movie->id = $request->id;
         $movie->trailer = $request('trailer');
         $movie->save();
-        Notify::success('La película se ha guardado/modificado correctamente'); 
+        Notify::success('La pelicula sha creat correctament'); 
         return redirect('catalog/show/'.$id);
     }
 
-    public function putRent($id)
-    {
-        //Obtenim la pel·lícula que té el id=$id
+    public function putRent($id){
         $movie = Movie::findOrFail($id);
         
         $movie->rented = true;
@@ -86,7 +83,6 @@ class CatalogController extends Controller{
 
     /**************** AFEGIR A FAVORITS*******************/
  
-
 
     /*public function putnoFavorits($id)
     {
@@ -105,7 +101,6 @@ class CatalogController extends Controller{
     
     public function putReturn($id)
     {
-        //Obtenim la pel·lícula que té el id=$id
         $movie = Movie::findOrFail($id);
         
         $movie->rented = false;
@@ -118,7 +113,6 @@ class CatalogController extends Controller{
     
     public function deleteMovie($id)
     {
-        //Obtenim la pel·lícula que té el id=$id
         $movie = Movie::findOrFail($id);
         
         $movie->delete();
@@ -128,7 +122,7 @@ class CatalogController extends Controller{
         
     }
 
-
+    /*COMENTARIS*/
     public function postReview(Request $request, $id){
 
         $user = Auth::id();
@@ -149,23 +143,15 @@ class CatalogController extends Controller{
 
     }
 
-    public function search(Request $request)
-    {
+    /*CERCADOR*/
+    public function search(Request $request){
         $search = $request['search'];
 
         if ($search == '') {
             return redirect('/catalog');
         }
 
-        $arrayPeliculas = Movie::where(
-            'title',
-            'like',
-            '%' . $search . '%'
-        )->orWhere(
-            'director',
-            'like',
-            '%' . $search . '%'
-        )->get();
+        $arrayPeliculas = Movie::where('title','like','%' . $search . '%')->orWhere('director','like','%' . $search . '%')->get();
 
         if (count($arrayPeliculas) == 0) {
             return redirect('/catalog')->with('warning', 'Busca millor');

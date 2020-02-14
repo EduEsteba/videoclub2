@@ -14,6 +14,16 @@
             <label for="title">Títol</label>
             <input type="text" class="form-control" id="title" name="title" placeholder="Títol" value="{{$pelicula->title}}">
         </div>
+
+        <div class="form-group">
+            <label for="categoria">Categoria</label><br>
+            <select class="form-control form-control-lg" name="categoria" id="categoria">
+            @foreach (App\Category::all() as $cat)
+               <option value="{{$cat->id}}">{{$cat->title}}</option>
+            @endforeach
+            </select>
+            </div>
+
         <div class="form-group">
             <label for="year">Any</label>
             <input type="text" class="form-control" id="year" name="year" placeholder="Any" value="{{$pelicula->year}}">
@@ -40,9 +50,6 @@
                <textarea name="trailer" type="text" id="trailer" class="form-control" ></textarea>
             </div>
 
-
-        
-        
         <button type="submit" class="btn btn-success">
           <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Guardar canvis
         </button>
@@ -51,5 +58,7 @@
           <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel·lar
         </a>
     </form>
+
+    
 
 @stop

@@ -12,16 +12,6 @@
 */
 
 
-
-/*Route::get('/login', function () {
-    return view('auth.login');
-});
-
-Route::get('logout', function () {
-    return view('logout');
-});*/
-
-
 Route::get('/', 'HomeController@getHome');
 
 Route::get('catalog', 'CatalogController@getIndex')->middleware('auth');
@@ -49,15 +39,13 @@ Route::put('catalog/return/{id}', 'CatalogController@putReturn')->middleware('au
 Route::delete('catalog/delete/{id}', 'CatalogController@deleteMovie')->middleware('auth');
 
 
-/*Route::put('catalog/favorito/{id}', 'CatalogController@putFavorits')->middleware('auth');
-Route::put('catalog/nofavorito/{id}', 'CatalogController@putnoFavorits')->middleware('auth');*/
+
 
 Route::post('/review/create/{id}', 'CatalogController@postReview')->middleware('auth');
 Route::post('/catalog', 'CatalogController@search')->name('catalog.search');
-Route::resource('category','CategoryController');
 
-/*Category*/
 
+/*Rutes de les categories*/
 /*Route::get('/category','CategoryController@index')->middleware('auth');;
 Route::get('/category/create','CategoryController@create')->middleware('auth');;
 Route::post('/category','CategoryController@store')->middleware('auth');;
@@ -65,7 +53,9 @@ Route::get('/category/{id}','CategoryController@show')->middleware('auth');;
 Route::get('/category/{id}/edit','CategoryController@edit')->middleware('auth');;
 Route::put('/category/{id}','CategoryController@update')->middleware('auth');;
 Route::delete('/category/{id}','CategoryController@destroy')->middleware('auth');;
-Auth::routes();*/
+*/
+
+
 
 
 
