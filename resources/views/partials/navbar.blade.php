@@ -20,6 +20,11 @@
                             <span>&#10010</span> Nueva película
                         </a>
                     </li>
+                    <li class="nav-item {{  Request::is('category ') ? 'active' : ''}}">
+                        <a class="nav-link" href="{{url('/category')}}">
+                            <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Categories
+                        </a>
+                    </li>
 
                 </ul>
 

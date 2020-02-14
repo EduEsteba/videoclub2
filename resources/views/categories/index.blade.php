@@ -13,7 +13,6 @@
             </div>
         </div>
     </div>
-
     <table class="table table-bordered">
         <tr>
             <th>Titol</th>
@@ -26,10 +25,10 @@
                         <td>{{$category->title}}</td>
                         <td>{{ $category->description }}</td>
                             @if($category->adult)
-                        <td>Per majors d'edat</td>
+                        <td><img  width="50em" style  src="https://cdn160.picsart.com/upscale-246208593027212.png?r1024x1024"></td>
                 @else
-                        <td>Per tots els publics</td>
-                @endif
+                        <td><img width="50em"  src="https://psmedia.playstation.com/is/image/psmedia/parents-three-column-pegi-3-01-eu-08nov16?$Icon$"></td>
+            @endif
         <td>
             <a href="{{ url('/categories/'.$category->id) }}" type="button" class="btn btn-success" style="display:inline">Mostrar</a>
             <a href="{{ url('/categories/'.$category->id.'/edit' ) }}" type="button" class="btn btn-warning" style="display:inline">Editar</a>
