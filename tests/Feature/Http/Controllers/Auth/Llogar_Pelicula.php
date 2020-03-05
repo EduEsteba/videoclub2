@@ -1,5 +1,6 @@
 <?php
 
+
 namespace Tests\Feature\Http\Controllers\Auth;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -9,13 +10,17 @@ use Tests\TestCase;
 use App\User;
 use App\Movie;
 
-class LoginControllerTest extends TestCase
+class Llogar_Pelicula extends TestCase
 {
-   /** @test */
-    public function login_displays_the_login_form()
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function testExample()
     {
-        $response = $this->get(route('login'));
-        $response->assertStatus(302);
-        $response->assertViewIs('auth.login');
+        $this->withoutMiddleware();
+        $response = $this->json('PUT','api/v1/catalog/1/rent');
+        $response->assertStatus(200);
     }
 }

@@ -9,13 +9,17 @@ use Tests\TestCase;
 use App\User;
 use App\Movie;
 
-class LoginControllerTest extends TestCase
+class Llistat_Pelicules extends TestCase
 {
-   /** @test */
-    public function login_displays_the_login_form()
-    {
-        $response = $this->get(route('login'));
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    /** @test */
+    public function llistar_catalog(){
+        $response = $this->get('catalog');
         $response->assertStatus(302);
-        $response->assertViewIs('auth.login');
+        $response->assertViewIs('catalog.show');
     }
 }
