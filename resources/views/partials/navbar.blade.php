@@ -30,8 +30,8 @@
 
                 <form class="form-inline my-2 my-lg-0" action="{{ route('catalog.search') }}" method="POST">
                     @csrf
-                    <input name="search" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                    <input name="search" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" >
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="search">Buscar</button>
                 </form>
 
                 <ul class="navbar-nav navbar-right">
